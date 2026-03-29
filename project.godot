@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Platformer clone_Brackeys"
+run/main_scene="uid://bmrhe2x5istrn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
