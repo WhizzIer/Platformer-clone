@@ -59,14 +59,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
-size = Vector2(256.857, 125)
+size = Vector2(60.2857, 31)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.4375, 1)
 script = SubResource("GDScript_l8h54")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.25, 1)
+scale = Vector2(0.535714, 0.25)
 sprite_frames = SubResource("SpriteFrames_4ntmi")
 autoplay = "default"
 frame = 2
@@ -74,7 +74,6 @@ frame_progress = 0.625529
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.428572, -0.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_btcbx")
 
 [node name="Camera2D" type="Camera2D" parent="."]

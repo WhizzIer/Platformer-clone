@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhalytpdu1ar5"]
+[gd_scene load_steps=4 format=3 uid="uid://dhalytpdu1ar5"]
 
 [ext_resource type="PackedScene" uid="uid://ckmkie2emproq" path="res://Player/player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://btnbh71fubl6y" path="res://Scenes/ground.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://c6q4s7w1st5ml" path="res://Scenes/Map.tscn" id="3_wrm1d"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,3 +11,6 @@ position = Vector2(550, 245)
 
 [node name="Welt Ende" parent="." instance=ExtResource("2_e2o6t")]
 position = Vector2(-1, 582)
+
+[node name="TileMap" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(495, 414)
