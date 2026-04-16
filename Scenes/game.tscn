@@ -7,10 +7,10 @@
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(550, 245)
+position = Vector2(523, 390)
 
 [node name="Welt Ende" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(-1, 582)
+position = Vector2(-30, 726)
 
 [node name="TileMap" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(495, 414)
+position = Vector2(569, 393)
