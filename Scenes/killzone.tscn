@@ -4,7 +4,7 @@
 resource_name = "Killzone"
 script/source = "extends Area2D
 
-@onready var timer: Timer = $Timer
+#@onready var timer: Timer = $Timer
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed(\"jump\") and %GameOverScreen.visible:
@@ -12,16 +12,16 @@ func _input(event: InputEvent) -> void:
 		Engine.time_scale = 1
 		
 func _on_body_entered(body: Node2D) -> void:
-	timer.start()
+	#timer.start()
 	%GameOverScreen.visible = true
 	Engine.time_scale = 0.1
 	
 
 
-func _on_timer_timeout() -> void:
+#func _on_timer_timeout() -> void:
 	#get_tree().reload_current_scene()
 	#Engine.time_scale = 1
-	pass
+	#pass
 "
 
 [node name="Killzone" type="Area2D"]
