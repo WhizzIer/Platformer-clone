@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dxlicjj6jseio" path="res://Sprites/Sprite - Goldbarren.png" id="1_5fbmp"]
 [ext_resource type="Script" uid="uid://cdljc8xrkyaxv" path="res://Scenes/gold.gd" id="1_f32ux"]
-[ext_resource type="AudioStream" uid="uid://4vrei3q8uk13" path="res://Sounds/gold Barren.mp3" id="3_1lqfo"]
+[ext_resource type="AudioStream" uid="uid://b3ayra3ue8lfx" path="res://Sounds/gold Barren - cut.mp3" id="3_1lqfo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5fbmp"]
 radius = 7.0

@@ -9,6 +9,21 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
 distance = -583.0
 
+[sub_resource type="Animation" id="Animation_wowpa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1489, 417)]
+}
+
 [sub_resource type="Animation" id="Animation_3dryh"]
 resource_name = "move"
 length = 4.0
@@ -24,21 +39,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1489, 417), Vector2(1749, 417)]
-}
-
-[sub_resource type="Animation" id="Animation_wowpa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1489, 417)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i6g32"]
@@ -79,5 +79,28 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="Gold" parent="." instance=ExtResource("5_wowpa")]
-position = Vector2(734, 388)
+[node name="Gold" type="Node2D" parent="."]
+position = Vector2(1328, 398)
+
+[node name="Gold" parent="Gold" instance=ExtResource("5_wowpa")]
+position = Vector2(-607, -18)
+
+[node name="Gold2" parent="Gold" instance=ExtResource("5_wowpa")]
+position = Vector2(-628, -18)
+
+[node name="Gold3" parent="Gold" instance=ExtResource("5_wowpa")]
+position = Vector2(-159, -4)
+
+[node name="Gold4" parent="Gold" instance=ExtResource("5_wowpa")]
+position = Vector2(-564, -19)
+
+[node name="Gold5" parent="Gold" instance=ExtResource("5_wowpa")]
+
+[node name="Gold6" parent="Gold" instance=ExtResource("5_wowpa")]
+position = Vector2(190, -43)
+
+[node name="Gold7" parent="Gold" instance=ExtResource("5_wowpa")]
+position = Vector2(362, -43)
+
+[node name="Gold8" parent="Gold" instance=ExtResource("5_wowpa")]
+position = Vector2(-586, -19)
