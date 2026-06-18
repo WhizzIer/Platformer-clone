@@ -30,12 +30,6 @@ position = Vector2(-1, -1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_wowpa")
 
-[node name="Platform" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(606, 370)
-
-[node name="Platform3" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(1489, 417)
-
 [node name="Gold" type="Node2D" parent="."]
 position = Vector2(1328, 398)
 
@@ -62,5 +56,14 @@ position = Vector2(362, -43)
 [node name="Gold8" parent="Gold" instance=ExtResource("5_wowpa")]
 position = Vector2(-586, -19)
 
-[node name="Platform4" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(1985, 417)
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="MovingPlatforms" type="Node2D" parent="Platforms"]
+
+[node name="MovingPlatform" parent="Platforms/MovingPlatforms" instance=ExtResource("4_3dryh")]
+
+[node name="MovingPlatform2" parent="Platforms/MovingPlatforms" instance=ExtResource("4_3dryh")]
+
+[node name="StillPlatforms" type="Node2D" parent="Platforms"]
+
+[node name="StillPlatform" parent="Platforms/StillPlatforms" instance=ExtResource("4_3dryh")]
