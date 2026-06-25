@@ -1,62 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://duvfq5axwrcvf"]
+[gd_scene load_steps=5 format=3 uid="uid://cqqq11jov5tpc"]
 
-[ext_resource type="Texture2D" uid="uid://cser8soj6o70u" path="res://Sprites/Tileset.png" id="1_1rc8e"]
+[ext_resource type="Script" uid="uid://3ats2q8vflsu" path="res://Scenes/platform.gd" id="1_n5262"]
+[ext_resource type="Texture2D" uid="uid://dsfa2s1gsd4da" path="res://Sprites/Tileset2.png" id="2_mrs20"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5262"]
-size = Vector2(48, 16)
+[sub_resource type="Curve2D" id="Curve2D_xdow6"]
+resource_local_to_scene = true
 
-[sub_resource type="Animation" id="Animation_wowpa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1489, 417)]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlqre"]
+size = Vector2(48, 4)
 
-[sub_resource type="Animation" id="Animation_3dryh"]
-resource_name = "move"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 3.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(300, 0)]
-}
+[node name="Platform" type="Path2D"]
+curve = SubResource("Curve2D_xdow6")
+script = ExtResource("1_n5262")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i6g32"]
-_data = {
-&"RESET": SubResource("Animation_wowpa"),
-&"move": SubResource("Animation_3dryh")
-}
+[node name="PlatformPath" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
 
-[node name="Platform" type="AnimatableBody2D"]
-position = Vector2(1489, 417)
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlatformPath"]
+remote_path = NodePath("../../AnimatableBody2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1rc8e")
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(0, 6)
+texture = ExtResource("2_mrs20")
 region_enabled = true
-region_rect = Rect2(0, 48, 48, 16)
+region_rect = Rect2(128, 16, 48, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_n5262")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_mlqre")
 one_way_collision = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_i6g32")
-}
-autoplay = "move"

@@ -1,13 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhalytpdu1ar5"]
+[gd_scene load_steps=8 format=3 uid="uid://dhalytpdu1ar5"]
 
 [ext_resource type="PackedScene" uid="uid://ckmkie2emproq" path="res://Player/player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://4a0mvmifs057" path="res://Scenes/killzone.tscn" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://c6q4s7w1st5ml" path="res://Scenes/Map.tscn" id="3_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://duvfq5axwrcvf" path="res://Scenes/platform.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://cqqq11jov5tpc" path="res://Scenes/platform.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://s1wy7i0yvep0" path="res://Scenes/gold.tscn" id="5_wowpa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
 distance = -583.0
+
+[sub_resource type="Curve2D" id="Curve2D_1l0tm"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 271, 0)
+}
+point_count = 2
 
 [node name="Game" type="Node2D"]
 
@@ -56,14 +63,8 @@ position = Vector2(362, -43)
 [node name="Gold8" parent="Gold" instance=ExtResource("5_wowpa")]
 position = Vector2(-586, -19)
 
-[node name="Platforms" type="Node2D" parent="."]
+[node name="Node" type="Node" parent="."]
 
-[node name="MovingPlatforms" type="Node2D" parent="Platforms"]
-
-[node name="MovingPlatform" parent="Platforms/MovingPlatforms" instance=ExtResource("4_3dryh")]
-
-[node name="MovingPlatform2" parent="Platforms/MovingPlatforms" instance=ExtResource("4_3dryh")]
-
-[node name="StillPlatforms" type="Node2D" parent="Platforms"]
-
-[node name="StillPlatform" parent="Platforms/StillPlatforms" instance=ExtResource("4_3dryh")]
+[node name="Platform" parent="." instance=ExtResource("5_i6g32")]
+position = Vector2(1489, 411)
+curve = SubResource("Curve2D_1l0tm")
