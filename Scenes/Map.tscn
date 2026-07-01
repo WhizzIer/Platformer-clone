@@ -130,6 +130,7 @@ texture = ExtResource("2_7yn8b")
 0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:7/0 = 0
 1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7yn8b"]
 physics_layer_0/collision_layer = 1
@@ -148,4 +149,5 @@ tile_set = SubResource("TileSet_7yn8b")
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
 position = Vector2(1, 6)
+tile_map_data = PackedByteArray(0, 0, 8, 0, 254, 255, 2, 0, 8, 0, 0, 0, 0, 0, 9, 0, 254, 255, 2, 0, 9, 0, 0, 0, 0, 0, 10, 0, 254, 255, 2, 0, 10, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_7yn8b")
