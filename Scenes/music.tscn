@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://blf5e80niun7v"]
+
+[ext_resource type="AudioStream" uid="uid://b2hkjqqq8bdu5" path="res://Sounds/Music/A New World To Explore vo JHAWK itch.io.wav" id="1_fbmny"]
+
+[node name="Music" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_fbmny")
+volume_db = -4.115
+autoplay = true

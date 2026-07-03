@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckmkie2emproq"]
 
-[ext_resource type="Texture2D" uid="uid://dn2s3bsrqkg1v" path="res://icon.svg" id="1_4flbx"]
-[ext_resource type="AudioStream" uid="uid://l46t1frsg813" path="res://Sounds/jump sound cartoon.mp3" id="2_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://c6lq8tjge6qyo" path="res://Sprites/Sprite - Zwerg.png" id="1_4ntmi"]
+[ext_resource type="AudioStream" uid="uid://l46t1frsg813" path="res://Sounds/Sound Effects/jump sound cartoon.mp3" id="2_4ntmi"]
 
 [sub_resource type="GDScript" id="GDScript_l8h54"]
 script/source = "extends CharacterBody2D
@@ -39,6 +39,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false
+	elif velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	
 
 	move_and_slide()
 "
@@ -47,52 +53,43 @@ func _physics_process(delta: float) -> void:
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4flbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_4flbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_4flbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_4flbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_4flbx")
+"texture": ExtResource("1_4ntmi")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4ntmi")
+}],
 "loop": true,
 "name": &"new_animation",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
-size = Vector2(27.4286, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
+size = Vector2(12.2857, 20)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 scale = Vector2(0.4375, 1)
 collision_layer = 2
+floor_max_angle = 1.0472
 floor_snap_length = 5.5
-safe_margin = 0.1
+safe_margin = 0.12
 script = SubResource("GDScript_l8h54")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.19209e-07, 0)
-scale = Vector2(0.214286, 0.203125)
+position = Vector2(2.38419e-07, -2)
+scale = Vector2(1.71429, 0.8125)
 sprite_frames = SubResource("SpriteFrames_4ntmi")
+animation = &"new_animation"
 autoplay = "default"
-frame = 2
-frame_progress = 0.625529
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.90735e-06, 0)
-shape = SubResource("RectangleShape2D_btcbx")
+position = Vector2(0.714286, 0)
+shape = SubResource("RectangleShape2D_4ntmi")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_4ntmi")

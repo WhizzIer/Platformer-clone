@@ -23,11 +23,12 @@ remote_path = NodePath("../../AnimatableBody2D")
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
-position = Vector2(0, 6)
+position = Vector2(0, 8)
 texture = ExtResource("2_mrs20")
 region_enabled = true
 region_rect = Rect2(128, 16, 48, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_mlqre")
 one_way_collision = true
