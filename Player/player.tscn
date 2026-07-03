@@ -78,6 +78,8 @@ size = Vector2(27.4286, 26)
 z_index = 5
 scale = Vector2(0.4375, 1)
 collision_layer = 2
+floor_snap_length = 5.5
+safe_margin = 0.1
 script = SubResource("GDScript_l8h54")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
