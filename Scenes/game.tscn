@@ -27,6 +27,7 @@ floor_constant_speed = true
 position = Vector2(-1.7643e-05, 0)
 scale = Vector2(2.28571, 1)
 zoom = Vector2(2.355, 2.355)
+limit_bottom = 400
 position_smoothing_enabled = true
 
 [node name="TileMap" parent="." instance=ExtResource("3_wrm1d")]

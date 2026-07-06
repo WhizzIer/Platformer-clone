@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwy3m6irpq4pj"
+path="res://.godot/imported/wilhelm-scream.mp3-815267c226f45ce647f85140fc087948.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sound Effects/wilhelm-scream.mp3"
+dest_files=["res://.godot/imported/wilhelm-scream.mp3-815267c226f45ce647f85140fc087948.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
