@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckmkie2emproq"]
+[gd_scene load_steps=12 format=3 uid="uid://ckmkie2emproq"]
 
 [ext_resource type="Texture2D" uid="uid://c6lq8tjge6qyo" path="res://Sprites/Sprite - Zwerg.png" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://cahqxh3p35hsf" path="res://Sprites/Sprite - Zwerg-Idle.png" id="1_btcbx"]
 [ext_resource type="AudioStream" uid="uid://l46t1frsg813" path="res://Sounds/Sound Effects/jump sound cartoon.mp3" id="2_4ntmi"]
 
 [sub_resource type="GDScript" id="GDScript_l8h54"]
@@ -49,8 +50,48 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 "
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
+atlas = ExtResource("1_btcbx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
+atlas = ExtResource("1_btcbx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
+atlas = ExtResource("1_btcbx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
+atlas = ExtResource("1_btcbx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
+atlas = ExtResource("1_btcbx")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4ntmi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwnis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k53q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhl08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtle1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od3ui")
+}],
+"loop": true,
+"name": &"Zwerg Idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_4ntmi")
@@ -84,8 +125,9 @@ script = SubResource("GDScript_l8h54")
 position = Vector2(2.38419e-07, -2)
 scale = Vector2(1.71429, 0.8125)
 sprite_frames = SubResource("SpriteFrames_4ntmi")
-animation = &"new_animation"
-autoplay = "default"
+animation = &"Zwerg Idle"
+autoplay = "Zwerg Idle"
+frame_progress = 0.489433
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.714286, 0)
