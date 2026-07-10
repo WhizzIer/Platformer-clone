@@ -75,4 +75,5 @@ position = Vector2(872, 16)
 curve = SubResource("Curve2D_1l0tm")
 
 [node name="Goal" parent="." instance=ExtResource("7_1l0tm")]
-position = Vector2(1496, -64)
+position = Vector2(1488, -64)
+scale = Vector2(1, 1)
