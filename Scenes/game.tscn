@@ -21,7 +21,7 @@ point_count = 2
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(-104, 0)
+position = Vector2(312, 0)
 floor_constant_speed = true
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
@@ -40,7 +40,7 @@ position = Vector2(0, 114)
 shape = SubResource("WorldBoundaryShape2D_wowpa")
 
 [node name="Gold" type="Node2D" parent="."]
-position = Vector2(752, -8)
+position = Vector2(1392, -80)
 
 [node name="Gold" parent="Gold" instance=ExtResource("5_wowpa")]
 position = Vector2(-472, -16)
