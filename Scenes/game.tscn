@@ -46,7 +46,7 @@ position = Vector2(1392, -80)
 position = Vector2(-472, -16)
 
 [node name="Gold2" parent="Gold" instance=ExtResource("5_wowpa")]
-position = Vector2(-664, -72)
+position = Vector2(-1040, 64)
 
 [node name="Gold3" parent="Gold" instance=ExtResource("5_wowpa")]
 position = Vector2(-159, -4)
