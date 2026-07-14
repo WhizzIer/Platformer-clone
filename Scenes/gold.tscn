@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://s1wy7i0yvep0"]
+[gd_scene load_steps=14 format=3 uid="uid://s1wy7i0yvep0"]
 
 [ext_resource type="Texture2D" uid="uid://dxlicjj6jseio" path="res://Sprites/Sprite - Goldbarren.png" id="1_5fbmp"]
 [ext_resource type="Script" uid="uid://cdljc8xrkyaxv" path="res://Scenes/gold.gd" id="1_f32ux"]
@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5fbmp"]
 radius = 7.0
-height = 26.0
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_5fbmp"]
 resource_name = "Gold wiggle"
@@ -21,7 +21,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 4), Vector2(0, -4)]
+"values": [Vector2(0, 2), Vector2(0, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D (Glow):position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(0, -2)]
 }
 
 [sub_resource type="Animation" id="Animation_f32ux"]
@@ -38,6 +50,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D (Glow):texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_5fbmp")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D (Glow):position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1lqfo"]
 _data = {
@@ -45,12 +81,49 @@ _data = {
 &"RESET": SubResource("Animation_f32ux")
 }
 
+[sub_resource type="Animation" id="Animation_flxtx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_jneoo"]
+resource_name = "Pulse"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.2, 1.2), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28x8f"]
+_data = {
+&"Pulse": SubResource("Animation_jneoo"),
+&"RESET": SubResource("Animation_flxtx")
+}
+
 [sub_resource type="Animation" id="Animation_1lqfo"]
 resource_name = "Pickup Animation"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = false
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("Sprite2D (Gold):visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -103,7 +176,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("Sprite2D (Gold):visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -150,14 +223,30 @@ script = ExtResource("1_f32ux")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5fbmp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D (Gold)" type="Sprite2D" parent="."]
+modulate = Color(1, 0.85, 0.45, 1)
 texture = ExtResource("1_5fbmp")
 
-[node name="Hovering Animation" type="AnimationPlayer" parent="Sprite2D"]
+[node name="Sprite2D (Glow)" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.75, 0.35)
+z_index = -1
+scale = Vector2(2, 2)
+texture = ExtResource("1_5fbmp")
+
+[node name="Hovering Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D (Gold)")
 libraries = {
 &"": SubResource("AnimationLibrary_1lqfo")
 }
 autoplay = "Gold wiggle"
+
+[node name="Glow Pulse" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D (Glow)")
+libraries = {
+&"": SubResource("AnimationLibrary_28x8f")
+}
+autoplay = "Pulse"
+speed_scale = 2.106
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_1lqfo")
