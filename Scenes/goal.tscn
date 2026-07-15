@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://blusop4p0wlb7"]
 
-[ext_resource type="Texture2D" uid="uid://pscniuthc8jh" path="res://Sprites/Checkpoint (Flag Idle)(32x32).png" id="1_paeek"]
+[ext_resource type="Texture2D" uid="uid://pscniuthc8jh" path="res://Animations/Checkpoint (Flag Idle)(32x32).png" id="1_paeek"]
 [ext_resource type="Script" uid="uid://biknv8rugmhfl" path="res://Scenes/goal.gd" id="1_s0pnd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ax2ce"]

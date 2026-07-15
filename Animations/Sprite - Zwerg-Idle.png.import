@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pscniuthc8jh"
-path="res://.godot/imported/Checkpoint (Flag Idle)(32x32).png-8c7e2397ff838fcf1587a7aab1166dff.ctex"
+uid="uid://cahqxh3p35hsf"
+path="res://.godot/imported/Sprite - Zwerg-Idle.png-ebdfee6a376ae28d799a8fc829e6765c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Checkpoint (Flag Idle)(32x32).png"
-dest_files=["res://.godot/imported/Checkpoint (Flag Idle)(32x32).png-8c7e2397ff838fcf1587a7aab1166dff.ctex"]
+source_file="res://Animations/Sprite - Zwerg-Idle.png"
+dest_files=["res://.godot/imported/Sprite - Zwerg-Idle.png-ebdfee6a376ae28d799a8fc829e6765c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cahqxh3p35hsf"
-path="res://.godot/imported/Sprite - Zwerg-Idle.png-c9462aa0ce9e17fb80eb5559f74d5e4c.ctex"
+uid="uid://bfbbgq3yp4c8l"
+path="res://.godot/imported/jump_indocator_under-Sheet.png-b40968eed2e1476cf291052af800eca0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Sprite - Zwerg-Idle.png"
-dest_files=["res://.godot/imported/Sprite - Zwerg-Idle.png-c9462aa0ce9e17fb80eb5559f74d5e4c.ctex"]
+source_file="res://Animations/jump_indocator_under-Sheet.png"
+dest_files=["res://.godot/imported/jump_indocator_under-Sheet.png-b40968eed2e1476cf291052af800eca0.ctex"]
 
 [params]
 
