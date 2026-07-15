@@ -18,12 +18,20 @@ var just_jumped = false
 
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var coyote_time: Timer = $CoyoteTime
+@onready var jump_buffer: Timer = $JumpBuffer
 
 
 # Erhöht Jump count beim einsammeln von Gold
 func collect_gold():
 	jump_count += 1
 	
+
+func jump():
+	velocity.y = JUMP_VELOCITY
+	jump_sound.play()
+	jump_count -= 1
+	just_jumped = true
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -32,10 +40,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed(\"jump\") and jump_count > 0:
-		velocity.y = JUMP_VELOCITY
-		jump_sound.play()
-		jump_count -= 1
-		just_jumped = true
+		jump()
 	if Input.is_action_just_released(\"jump\") and velocity.y < 0:
 		velocity.y *= 0.4
 	
@@ -70,6 +75,15 @@ func _physics_process(delta: float) -> void:
 	# Jump reset.
 	if is_on_floor() and not was_on_floor:
 		jump_count = START_JUMPS
+		if jump_buffer.time_left > 0:
+			jump()
+			
+		
+	# Jump Buffer
+	if not is_on_floor() and Input.is_action_just_pressed(\"jump\"):
+		if jump_count==0:
+			jump_buffer.start()
+		
 		
 		
 	
@@ -157,4 +171,9 @@ pitch_scale = 1.54
 wait_time = 0.1
 one_shot = true
 
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="CoyoteTime" to="." method="_on_coyote_time_timeout"]
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
