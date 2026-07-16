@@ -7,10 +7,12 @@
 script/source = "extends CharacterBody2D
 
 const START_JUMPS = 2
-const SPEED = 250.0
+const WALKING_SPEED = 180
+const RUNNING_SPEED = 250.0
 const GROUND_ACCELERATION = 30
 const AIR_ACCELERATION = 25
 const JUMP_VELOCITY = -350.0
+var speed = WALKING_SPEED
 var jump_count = START_JUMPS
 var was_on_floor = false
 var just_jumped = false
@@ -49,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released(\"jump\") and velocity.y < 0:
 		velocity.y *= 0.4
 	
-	
+		
 		# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(\"move_left\", \"move_right\")
@@ -59,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			acceleration = AIR_ACCELERATION
 		
-		velocity.x = move_toward(velocity.x, direction * SPEED, acceleration)
+		velocity.x = move_toward(velocity.x, direction * speed, acceleration)
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, GROUND_ACCELERATION*2)
@@ -72,7 +74,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-		# von Platform laufen
+	# von Platform laufen
 	if was_on_floor and not is_on_floor() and not just_jumped:
 		coyote_time.start()
 		
@@ -80,8 +82,9 @@ func _physics_process(delta: float) -> void:
 	# Jump reset.
 	if is_on_floor() and not was_on_floor:
 		jump_count = START_JUMPS
-		if jump_buffer.time_left > 0:
+		if jump_buffer.time_left > 0: # Jump buffer eingebaut
 			jump()
+		
 			
 		
 	# Jump Buffer
@@ -90,10 +93,19 @@ func _physics_process(delta: float) -> void:
 			jump_buffer.start()
 		
 		
-		
+		# Handle running
+	if Input.is_action_pressed(\"run\") and is_on_floor():
+		speed = RUNNING_SPEED
+	if Input.is_action_just_released(\"run\") and is_on_floor():
+		speed = WALKING_SPEED
+	if is_on_floor() and not was_on_floor and not Input.is_action_pressed(\"run\"):
+		speed = WALKING_SPEED
 	
 	was_on_floor = is_on_floor()
+	
 	just_jumped = false
+		
+
 		
 	jump_indicator.frame = jump_count
 
@@ -145,7 +157,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(12.2857, 20)
+size = Vector2(10, 28)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5

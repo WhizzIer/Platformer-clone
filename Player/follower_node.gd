@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $"../Player"
 
-@export var spring_strength = 20.0
+@export var spring_strength = 40.0
 @export var damping = 0.8
 @export var max_distance = 40.0
 
@@ -20,9 +20,10 @@ func _process(delta):
 		var spring_force = direction * spring_strength
 		
 		follow_velocity += spring_force * delta
-		follow_velocity *= damping
+	
 		
-		global_position += follow_velocity * delta
-	else:
-		# leicht abbremsen, wenn er nah genug ist
-		follow_velocity *= damping
+	
+
+	follow_velocity *= damping
+	
+	global_position += follow_velocity * delta
