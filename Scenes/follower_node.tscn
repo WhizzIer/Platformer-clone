@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://busioxgmsdh18"]
 
-[ext_resource type="Script" uid="uid://c4kj3utnlhesc" path="res://Player/follower_node.gd" id="1_sacya"]
+[ext_resource type="Script" uid="uid://c4kj3utnlhesc" path="res://Scripts/follower_node.gd" id="1_sacya"]
 [ext_resource type="Texture2D" uid="uid://bfbbgq3yp4c8l" path="res://Animations/jump_indocator_under-Sheet.png" id="2_uhsl8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]

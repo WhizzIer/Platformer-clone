@@ -8,6 +8,8 @@ extends Node2D
 
 var follow_velocity = Vector2.ZERO
 
+func snap_to_player():
+	global_position = player.global_position
 
 func _process(delta):
 	var target_position = player.global_position
@@ -22,7 +24,6 @@ func _process(delta):
 		follow_velocity += spring_force * delta
 	
 		
-	
 
 	follow_velocity *= damping
 	

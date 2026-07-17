@@ -31,6 +31,8 @@ var just_jumped = false
 # Erhöht Jump count beim einsammeln von Gold
 func collect_gold():
 	jump_count += 1
+	if jump_buffer.time_left > 0: # Jump buffer eingebaut
+			jump()
 	
 
 func jump():
@@ -84,7 +86,8 @@ func _physics_process(delta: float) -> void:
 		jump_count = START_JUMPS
 		if jump_buffer.time_left > 0: # Jump buffer eingebaut
 			jump()
-		
+	if is_on_floor() and jump_count > 2:
+		jump_count = START_JUMPS
 			
 		
 	# Jump Buffer
@@ -105,9 +108,8 @@ func _physics_process(delta: float) -> void:
 	
 	just_jumped = false
 		
-
 		
-	jump_indicator.frame = jump_count
+	jump_indicator.frame = jump_count # Jump Indicator ändert sich je nach Anzahl der jumps
 
 func _on_coyote_time_timeout() -> void:
 	jump_count = 1

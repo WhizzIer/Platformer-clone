@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://blusop4p0wlb7"]
 
 [ext_resource type="Texture2D" uid="uid://pscniuthc8jh" path="res://Animations/Checkpoint (Flag Idle)(32x32).png" id="1_paeek"]
-[ext_resource type="Script" uid="uid://biknv8rugmhfl" path="res://Scenes/goal.gd" id="1_s0pnd"]
+[ext_resource type="Script" uid="uid://biknv8rugmhfl" path="res://Scripts/goal.gd" id="1_s0pnd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ax2ce"]
 radius = 9.99447
@@ -88,7 +88,6 @@ animations = [{
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2lgk0"]
 
 [node name="Goal" type="Area2D"]
-scale = Vector2(0.386925, 0.410914)
 collision_mask = 2
 script = ExtResource("1_s0pnd")
 

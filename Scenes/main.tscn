@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhalytpdu1ar5"]
+
+[ext_resource type="Script" uid="uid://bs3l611bs2fa2" path="res://Scripts/main.gd" id="1_kry3j"]
+[ext_resource type="PackedScene" uid="uid://ckmkie2emproq" path="res://Player/player.tscn" id="2_21xkr"]
+[ext_resource type="PackedScene" uid="uid://busioxgmsdh18" path="res://Scenes/follower_node.tscn" id="3_6bp64"]
+[ext_resource type="PackedScene" uid="uid://blf5e80niun7v" path="res://Scenes/music.tscn" id="4_344ge"]
+[ext_resource type="PackedScene" uid="uid://vii5ojn2d7cl" path="res://Scenes/Levels/level_01.tscn" id="5_ynf5e"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kry3j")
+
+[node name="Player" parent="." instance=ExtResource("2_21xkr")]
+position = Vector2(80, -8)
+
+[node name="Camera" type="Camera2D" parent="Player"]
+position = Vector2(-1.52588e-05, 0)
+scale = Vector2(2.28571, 1)
+zoom = Vector2(2.355, 2.355)
+limit_bottom = 300
+position_smoothing_enabled = true
+
+[node name="FollowerNode" parent="." instance=ExtResource("3_6bp64")]
+position = Vector2(-112, -48)
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Music" parent="Audio" instance=ExtResource("4_344ge")]
+
+[node name="CurrentLevel" type="Node2D" parent="."]
+
+[node name="Level01" parent="CurrentLevel" instance=ExtResource("5_ynf5e")]
